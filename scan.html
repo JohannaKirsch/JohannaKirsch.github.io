@@ -49,14 +49,15 @@
 
 
         <a-marker type="pattern" url="data/kanji.patt">
-            <!--<a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                animation-mixer="clip: *; loop:repeat" gltf-model="#ship">
+            <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#ship">
             </a-entity>
             <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
                 gltf-model="#wave1"></a-entity>
             <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
                 gltf-model="#wave2">
             </a-entity>
+            <!--
             <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
                 gltf-model="#woman1">
             </a-entity>
@@ -83,11 +84,11 @@
     <div class="text" onclick="myFunction()">
         <br>
         <br>
-        <div id="text">Klick hier zum Start ▸</div>
+        1620 brach das Schiff Mayflower von Plymouth in England auf. ▸
     </div>
     <script>
         var i = 0;
-        var text = [" 1620 brach das Schiff Mayflower von Plymouth in England auf. ▸", "Das Ziel war Amerika. ▸"
+        var text = ["Das Ziel war Amerika. ▸"
             , "102 Passagiere hofften auf einen Neuanfang im neuen Land. ▸"
             , "Auf dem Schiff waren Familien, Männer, Frauen aber auch elternlose Kinder. ▸"
             , "Diese Gruppe legte die Grundlage für die heutige USA."];
@@ -99,29 +100,7 @@
                 scene.removeChild(scene.firstElementChild);
                 i = -1;
             }
-            if (i == 0) {
-                let ship = document.createElement('a-entity');
-                ship.setAttribute('position', '0 0 0');
-                ship.setAttribute('rotation', '0 0 0');
-                ship.setAttribute('scale', '1 1 1');
-                ship.setAttribute('animation-mixer', 'clip: *; loop:repeat');
-                ship.setAttribute('gltf-model', '#ship');
-                scene.appendChild(ship);
-                let wave1 = document.createElement('a-entity');
-                wave1.setAttribute('position', '0 0 0');
-                wave1.setAttribute('rotation', '0 0 0');
-                wave1.setAttribute('scale', '1 1 1');
-                wave1.setAttribute('animation-mixer', 'clip: *; loop:repeat');
-                wave1.setAttribute('gltf-model', '#wave1');
-                scene.appendChild(wave1);
-                let wave2 = document.createElement('a-entity');
-                wave2.setAttribute('position', '0 0 0');
-                wave2.setAttribute('rotation', '0 0 0');
-                wave2.setAttribute('scale', '1 1 1');
-                wave2.setAttribute('animation-mixer', 'clip: *; loop:repeat');
-                wave2.setAttribute('gltf-model', '#wave2');
-                scene.appendChild(wave2);
-            } if (i == 2) {
+            if (i == 1) {
                 scene.removeChild(scene.firstElementChild);
                 scene.removeChild(scene.firstElementChild);
                 scene.removeChild(scene.firstElementChild);

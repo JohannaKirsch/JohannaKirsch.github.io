@@ -14,28 +14,50 @@
             color: white;
             font-family: 'Jockey One', sans-serif;
             text-align: center;
-            bottom: 50px;
+            bottom: 20%;
             left: 0px;
-            background-size: 400px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
             position: absolute;
-            font-size: 24px;
-            z-index: 4;
-            padding: 25px;
+            font-size: 68px;
+            padding: 50px;
         }
 
-        #text {
-            width: 90%;
-            margin: auto;
+        @keyframes fading {
+            0% {
+                opacity: 0.1
+            }
+
+            50% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0.1
+            }
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
     <div>Willkommen zur interaktiven Erweiterung des Menüs!</div>
-    <div style="font-size: 16px;"> <br> <br> Halte dein Handy über die einzelnen Seiten um die Geschichte der Mayflower
-        verfolgen zu können.
+    <div style="font-size:80%; color: #E4D8CE">
+        <br>
+        <br>
+        Halte dein Handy über die einzelnen Seiten um die Geschichte der Mayflower verfolgen zu können.
     </div>
-    <div style="font-size: 18px;"> <br> klicke um weiter zu kommen ▸</div>
+    <a href="scan.html">
+        <div style="font-size:60%; color: #CEB9A7; animation:fading 8s infinite;">
+            <br>
+            klicke um weiter zu kommen ▸
+        </div>
+    </a>
 </body>
 
 </html>
