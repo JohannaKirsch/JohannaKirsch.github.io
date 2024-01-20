@@ -99,7 +99,8 @@
     </a-scene>
     <div class="text" onclick="myFunction()">
         <div id="text">1620 brach das Schiff Mayflower von Plymouth in England auf. ▸</div>
-        <p style="font-size:24px; margin: auto; text-align: center; color: #CEB9A7; animation:fading 8s infinite;">
+        <p id="turnpage"
+            style="font-size:24px; margin: auto; text-align: center; color: #CEB9A7; animation:fading 8s infinite;">
             Blätter zur nächsten Seite
         </p>
     </div>
@@ -155,7 +156,7 @@
             i += 1;
         };
 
-        scene.addEventListener("markerFound", (e) => { console.log("lol") });
+        scene.addEventListener("markerFound", (e) => { document.getElementById(turnPage).style.visibility = 'hidden' });
     </script>
 
 </body>
