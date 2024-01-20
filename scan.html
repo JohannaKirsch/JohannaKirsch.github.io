@@ -151,11 +151,11 @@
                 group.setAttribute('gltf-model', '#group');
                 scene.appendChild(group);
             }
-            //document.getElementById("text").textContent = text[i];
+            document.getElementById("text").textContent = text[i];
             i += 1;
         };
 
-        scene.addEventListener("markerFound", (e) => { document.getElementById("text").textContent = lol });
+        scene.addEventListener("markerFound", (e) => { console.log("lol") });
     </script>
 
 </body>
