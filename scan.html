@@ -64,7 +64,7 @@
         </a-assets>
 
 
-        <a-marker type="pattern" url="data/kanji.patt">
+        <a-marker id="scene1" type="pattern" url="data/kanji.patt">
             <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
                 gltf-model="#ship">
             </a-entity>
@@ -100,7 +100,7 @@
     <div class="text" onclick="myFunction()">
         <div id="text">1620 brach das Schiff Mayflower von Plymouth in England auf. ▸</div>
         <p id="turnPage"
-            style="font-size:24px; margin: auto; text-align: center; color: #CEB9A7; animation:fading 8s infinite;">
+            style="font-size:24px; visibility: hidden; margin: auto; text-align: center; color: #CEB9A7; animation:fading 8s infinite;">
             Blätter zur nächsten Seite
         </p>
     </div>
@@ -110,14 +110,15 @@
             , "102 Passagiere hofften auf einen Neuanfang im neuen Land. ▸"
             , "Auf dem Schiff waren Familien, Männer, Frauen aber auch elternlose Kinder. ▸"
             , "Diese Gruppe legte die Grundlage für die heutige USA."];
-        let scene = document.querySelector('a-marker');
+        let scene = document.querySelector('a-marker').getElementById("scene1");
         let textElement = document.getElementById("text");
         function myFunction() {
             if (text[i] == null) {
                 scene.removeChild(scene.firstElementChild);
                 //scene.removeChild(scene.firstElementChild);
                 //scene.removeChild(scene.firstElementChild);
-                i = -1;
+                //i = -1;
+                document.getElementById("turnPage").style.visibility = 'visible';
             }
             if (i == 1) {
                 scene.removeChild(scene.firstElementChild);
