@@ -11,22 +11,37 @@
     <style>
         .text {
             background-image: url(ui_text_bg.png);
-            color: white;
             font-family: 'Jockey One', sans-serif;
-            text-align: center;
             width: 100%;
             height: 25%;
             bottom: 0px;
             left: 0px;
-            background-size: 400px;
+            background-size: cover;
             position: absolute;
-            font-size: 24px;
-            z-index: 4;
+            align-items: center;
+            z-index: 1;
         }
 
         #text {
-            width: 90%;
-            margin: auto;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            padding: 25px;
+            padding-top: 100px;
+        }
+
+        @keyframes fading {
+            0% {
+                opacity: 0.1
+            }
+
+            50% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0.1
+            }
         }
     </style>
 
@@ -44,7 +59,8 @@
             <a-asset-item id="man1" src="models/scene1/szene1_mann1.gltf"></a-asset-item>
             <a-asset-item id="man2" src="models/scene1/szene1_mann2.gltf"></a-asset-item>
             <a-asset-item id="child" src="models/scene1/szene1_kind.gltf"></a-asset-item>
-            <a-asset-item id="soldat" src="models/scene1/szene1_soldat.gltf"></a-asset-item>-->
+            <a-asset-item id="soldat" src="models/scene1/szene1_soldat.gltf"></a-asset-item>
+            <a-asset-item id="group" src="models/scene1/szene1_group.gltf"></a-asset-item>
         </a-assets>
 
 
@@ -81,10 +97,11 @@
         <a-entity camera></a-entity>
 
     </a-scene>
-    <div class="text" id="text" onclick="myFunction()">
-        <br>
-        <br>
-        1620 brach das Schiff Mayflower von Plymouth in England auf. ▸
+    <div class="text" onclick="myFunction()">
+        <div id="text">1620 brach das Schiff Mayflower von Plymouth in England auf. ▸</div>
+        <p style="font-size:24px; margin: auto; text-align: center; color: #CEB9A7; animation:fading 8s infinite;">
+            Blätter zur nächsten Seite
+        </p>
     </div>
     <script>
         var i = 0;
@@ -93,18 +110,19 @@
             , "Auf dem Schiff waren Familien, Männer, Frauen aber auch elternlose Kinder. ▸"
             , "Diese Gruppe legte die Grundlage für die heutige USA."];
         let scene = document.querySelector('a-marker');
+        let textElement = document.getElementById("text");
         function myFunction() {
             if (text[i] == null) {
                 scene.removeChild(scene.firstElementChild);
-                scene.removeChild(scene.firstElementChild);
-                scene.removeChild(scene.firstElementChild);
+                //scene.removeChild(scene.firstElementChild);
+                //scene.removeChild(scene.firstElementChild);
                 i = -1;
             }
             if (i == 1) {
                 scene.removeChild(scene.firstElementChild);
                 scene.removeChild(scene.firstElementChild);
                 scene.removeChild(scene.firstElementChild);
-                let woman1 = document.createElement('a-entity');
+                /*let woman1 = document.createElement('a-entity');
                 woman1.setAttribute('position', '0 0 0');
                 woman1.setAttribute('rotation', '0 0 0');
                 woman1.setAttribute('scale', '1 1 1');
@@ -124,7 +142,14 @@
                 man1.setAttribute('scale', '1 1 1');
                 man1.setAttribute('animation-mixer', 'clip: *; loop:repeat');
                 man1.setAttribute('gltf-model', '#man1');
-                scene.appendChild(man1);
+                scene.appendChild(man1);*/
+                let group = document.createElement('a-entity');
+                group.setAttribute('position', '0 0 0');
+                group.setAttribute('rotation', '0 0 0');
+                group.setAttribute('scale', '1 1 1');
+                group.setAttribute('animation-mixer', 'clip: *; loop:repeat');
+                group.setAttribute('gltf-model', '#group');
+                scene.appendChild(group);
             }
             document.getElementById("text").textContent = text[i];
             i += 1;
