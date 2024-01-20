@@ -1,160 +1,156 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-	<title>AR.js examples</title>
-	<link rel=stylesheet href="index/index.css" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="js/aframe.min.js"></script>
+    <script src="js/aframe-ar.js"></script>
+    <script src="js/aframe-extras.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+    <style>
+        .text {
+            background-image: url(ui_text_bg.png);
+            color: white;
+            font-family: 'Jockey One', sans-serif;
+            text-align: center;
+            width: 100%;
+            height: 25%;
+            bottom: 0px;
+            left: 0px;
+            background-size: 400px;
+            position: absolute;
+            font-size: 24px;
+            z-index: 4;
+        }
+
+        #text {
+            width: 90%;
+            margin: auto;
+        }
+    </style>
+
 </head>
 
-<body>
+<body style="margin: 0px; overflow: hidden;">
+    <a-scene id="AR" embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
-	<div class="bigTitle">AR.js examples</div>
-	<hr>
+        <a-assets>
+            <a-asset-item id="ship" src="models/scene1/szene1_schiff.gltf"></a-asset-item>
+            <a-asset-item id="wave1" src="models/scene1/szene1_wellen1.gltf"></a-asset-item>
+            <a-asset-item id="wave2" src="models/scene1/szene1_wellen2.gltf"></a-asset-item>
+            <a-asset-item id="woman1" src="models/scene1/szene1_frau1.gltf"></a-asset-item>
+            <a-asset-item id="woman2" src="models/scene1/szene1_frau2.gltf"></a-asset-item>
+            <a-asset-item id="man1" src="models/scene1/szene1_mann1.gltf"></a-asset-item>
+            <a-asset-item id="man2" src="models/scene1/szene1_mann2.gltf"></a-asset-item>
+            <a-asset-item id="child" src="models/scene1/szene1_kind.gltf"></a-asset-item>
+            <a-asset-item id="soldat" src="models/scene1/szene1_soldat.gltf"></a-asset-item>-->
+        </a-assets>
 
-	The goal of this collection is to provide a set of basic and instructive examples that introduce the various
-	features in the Javascript-based Augmented Reality (AR) library,
-	<a href="https://github.com/jeromeetienne/AR.js">AR.js</a> (version 2), built upon the <a
-		href="https://aframe.io/">A-Frame</a> and <a href="https://threejs.org/">three.js</a> libraries.
 
-	<br /><br />
-	Viewing the AR examples will require a device with a camera and various marker images to be detected, which are
-	available in the <code>markers</code> directory in this repository. Requires the kanji marker unless otherwise
-	specified.
+        <a-marker type="pattern" url="data/kanji.patt">
+            <!--<a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1"
+                animation-mixer="clip: *; loop:repeat" gltf-model="#ship">
+            </a-entity>
+            <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#wave1"></a-entity>
+            <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#wave2">
+            </a-entity>
+            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#woman1">
+            </a-entity>
+            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#woman2">
+            </a-entity>
+            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#man1">
+            </a-entity>
+            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#man2">
+            </a-entity>
+            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#child">
+            </a-entity>
+            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
+                gltf-model="#soldat">
+            </a-entity>-->
+        </a-marker>
 
-	<br /><br />
-	Source code hosted at <a class="toc"
-		href="https://github.com/stemkoski/AR.js-examples">github.com/stemkoski/AR.js-examples</a>.
+        <a-entity camera></a-entity>
 
-	<hr />
-
-	<table class="fancy">
-		<tr>
-			<td><a href="basic.html"><img src="index/basic.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="basic.html">Hello, AR World!</a>
-				<p>A basic scene that places plain and textured shapes on markers (kanji, barcodes 0/1/2).</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="models.html"><img src="index/model.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="models.html">3D model</a>
-				<p>A single gltf model attached to a marker.</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="cubemap.html"><img src="index/cubemap.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="cubemap.html">Multi-Textured Cube</a>
-				<p>A cube with different images on each side, attached to a marker. <br />Uses the aframe-multisrc
-					component.</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="animation.html"><img src="index/animation.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="animation.html">Animation</a>
-				<p>Animating (rotating) a globe attached to a marker, using the built-in animation component.</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="text.html"><img src="index/text.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="text.html">Text (2D and 3D)</a>
-				<p>Attaching text to the kanji and hiro markers.<br />
-					3D text uses the aframe-text-geometry component.</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="particles.html"><img src="index/particles.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="particles.html">Particle Effects</a>
-				<p>Creating a particle system effect, attached to a marker.
-					<br />Uses the aframe-particle system component.
-				</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="scripting.html"><img src="index/scripting.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="scripting.html">Introduction to Scripting</a>
-				<p>Rotates a globe attached to a marker, by writing an A-Frame component and modifying the underlying
-					Three.js object.</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="canvas.html"><img src="index/canvas.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="canvas.html">Canvas Textures</a>
-				<p>Using an HTML canvas as the texture for a cube; creating an animation ("bouncing block") on the
-					canvas and updating the cube texture. </p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="detection.html"><img src="index/detection.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="detection.html">Detection</a>
-				<p>A cube is attached to a kanji marker. Red, yellow, and blue squares are attached to barcode markers
-					0, 1, and 2.
-					The color of the cube changes depending on which combination of the markers is visible.</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="follower.html"><img src="index/follower.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="follower.html">Persistence and Following </a>
-				<p>A green square is attached to a marker. If the marker is no longer visible, the square turns red and
-					remains in the last known
-					position of the marker. If the marker then becomes visible again, the square turns green and moves
-					(lerps) to the new position.</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="line.html"><img src="index/line.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="line.html">Line between two markers</a>
-				<p>Drawing a line between the centers of barcode markers 0 and 1. (Updates line geometry vertices.)</p>
-			</td>
-		</tr>
-	</table>
-
-	<table class="fancy">
-		<tr>
-			<td><a href="line2.html"><img src="index/cylinder.png" class="superImage" /></a></td>
-			<td class="tableText"><a href="line2.html">Cylinder between two markers</a>
-				<p>Since lines can be difficult to see, drawing spheres at the centers of barcode markers 0 and 1, and
-					creating a cylinder between the them. (Reorients and rescales the cylinder depending on the distance
-					between the markers.)</p>
-			</td>
-		</tr>
-	</table>
-
-	<!--
-<table class="fancy"><tr>
-	<td><img src="index/IMAGE-NAME.png" class="superImage" /></td>
-	<td class="tableText"><a href="FILE.html">TITLE</a>
-	<p>DESCRIPTION</p></td>
-</tr></table>
--->
+    </a-scene>
+    <div class="text" onclick="myFunction()">
+        <br>
+        <br>
+        <div id="text">Klick hier zum Start ▸</div>
+    </div>
+    <script>
+        var i = 0;
+        var text = [" 1620 brach das Schiff Mayflower von Plymouth in England auf. ▸", "Das Ziel war Amerika. ▸"
+            , "102 Passagiere hofften auf einen Neuanfang im neuen Land. ▸"
+            , "Auf dem Schiff waren Familien, Männer, Frauen aber auch elternlose Kinder. ▸"
+            , "Diese Gruppe legte die Grundlage für die heutige USA."];
+        let scene = document.querySelector('a-marker');
+        function myFunction() {
+            if (text[i] == null) {
+                scene.removeChild(scene.firstElementChild);
+                scene.removeChild(scene.firstElementChild);
+                scene.removeChild(scene.firstElementChild);
+                i = -1;
+            }
+            if (i == 0) {
+                let ship = document.createElement('a-entity');
+                ship.setAttribute('position', '0 0 0');
+                ship.setAttribute('rotation', '0 0 0');
+                ship.setAttribute('scale', '1 1 1');
+                ship.setAttribute('animation-mixer', 'clip: *; loop:repeat');
+                ship.setAttribute('gltf-model', '#ship');
+                scene.appendChild(ship);
+                let wave1 = document.createElement('a-entity');
+                wave1.setAttribute('position', '0 0 0');
+                wave1.setAttribute('rotation', '0 0 0');
+                wave1.setAttribute('scale', '1 1 1');
+                wave1.setAttribute('animation-mixer', 'clip: *; loop:repeat');
+                wave1.setAttribute('gltf-model', '#wave1');
+                scene.appendChild(wave1);
+                let wave2 = document.createElement('a-entity');
+                wave2.setAttribute('position', '0 0 0');
+                wave2.setAttribute('rotation', '0 0 0');
+                wave2.setAttribute('scale', '1 1 1');
+                wave2.setAttribute('animation-mixer', 'clip: *; loop:repeat');
+                wave2.setAttribute('gltf-model', '#wave2');
+                scene.appendChild(wave2);
+            } if (i == 2) {
+                scene.removeChild(scene.firstElementChild);
+                scene.removeChild(scene.firstElementChild);
+                scene.removeChild(scene.firstElementChild);
+                let woman1 = document.createElement('a-entity');
+                woman1.setAttribute('position', '0 0 0');
+                woman1.setAttribute('rotation', '0 0 0');
+                woman1.setAttribute('scale', '1 1 1');
+                woman1.setAttribute('animation-mixer', 'clip: *; loop:repeat');
+                woman1.setAttribute('gltf-model', '#woman1');
+                scene.appendChild(woman1);
+                let woman2 = document.createElement('a-entity');
+                woman2.setAttribute('position', '0 0 0');
+                woman2.setAttribute('rotation', '0 0 0');
+                woman2.setAttribute('scale', '1 1 1');
+                woman2.setAttribute('animation-mixer', 'clip: *; loop:repeat');
+                woman2.setAttribute('gltf-model', '#woman2');
+                scene.appendChild(woman2);
+                let man1 = document.createElement('a-entity');
+                man1.setAttribute('position', '0 0 0');
+                man1.setAttribute('rotation', '0 0 0');
+                man1.setAttribute('scale', '1 1 1');
+                man1.setAttribute('animation-mixer', 'clip: *; loop:repeat');
+                man1.setAttribute('gltf-model', '#man1');
+                scene.appendChild(man1);
+            }
+            document.getElementById("text").textContent = text[i];
+            i += 1;
+        };
+    </script>
 
 </body>
 
