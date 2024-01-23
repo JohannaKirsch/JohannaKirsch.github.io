@@ -33,6 +33,7 @@ function startScene2() {
         if (text2[b] == null) {
             document.getElementById("turnPage").style.visibility = 'visible';
             scene2Over = true;
+            window.open("scene3.html", "_self");
         }
         document.getElementById("text").textContent = text2[b];
         b += 1;

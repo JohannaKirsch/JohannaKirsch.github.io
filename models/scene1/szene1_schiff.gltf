@@ -69,7 +69,8 @@
 	],
 	"materials":[
 		{
-			"alphaMode":"BLEND",
+			"alphaCutoff":0.5,
+			"alphaMode":"MASK",
 			"doubleSided":true,
 			"name":"schiff_material",
 			"pbrMetallicRoughness":{
@@ -114,7 +115,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":4,
+			"count":34,
 			"max":[
 				0.7261765003204346,
 				-4.371138828673793e-08,
@@ -130,27 +131,27 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":4,
+			"count":34,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":4,
+			"count":34,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":6,
+			"count":120,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":81,
+			"count":41,
 			"max":[
-				3.3333333333333335
+				1.6666666666666667
 			],
 			"min":[
 				0
@@ -160,55 +161,55 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":81,
+			"count":41,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":81,
+			"count":41,
 			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":48,
+			"byteLength":408,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
-			"byteOffset":48,
+			"byteLength":408,
+			"byteOffset":408,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":32,
-			"byteOffset":96,
+			"byteLength":272,
+			"byteOffset":816,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":12,
-			"byteOffset":128,
+			"byteLength":240,
+			"byteOffset":1088,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":324,
-			"byteOffset":140
+			"byteLength":164,
+			"byteOffset":1328
 		},
 		{
 			"buffer":0,
-			"byteLength":972,
-			"byteOffset":464
+			"byteLength":492,
+			"byteOffset":1492
 		},
 		{
 			"buffer":0,
-			"byteLength":1296,
-			"byteOffset":1436
+			"byteLength":656,
+			"byteOffset":1984
 		}
 	],
 	"samplers":[
@@ -219,7 +220,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":2732,
+			"byteLength":2640,
 			"uri":"szene1_schiff.bin"
 		}
 	]
