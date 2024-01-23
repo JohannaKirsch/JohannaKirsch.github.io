@@ -35,7 +35,7 @@ function startScene1() {
             scene1.removeChild(scene1.firstElementChild);
             document.getElementById("turnPage").style.visibility = 'visible';
             scene1Over = true;
-            window.location("scene2.html");
+            location.reload("scene2.html");
         }
         if (a == 1) {
             scene1.removeChild(scene1.firstElementChild);
