@@ -6,11 +6,11 @@ let textElement = document.getElementById("text");
 let scene3Over = false;
 let scene3Detected = false;
 var c = 1;
-var text2 = ["Alle Passagiere tranken Bier auf dem Schiff. ▸"
-    , "Das Wasser war nicht sauber genug. ▸"
-    , "Es gab auch Wein zum Trinken. ▸"
-    , "Viele tranken Zitronensaft, um die Krankheit Skorbut nicht zu bekommen. ▸"
-    , "Im Getränk Cold Duck auf der Karte ist beides zu finden: Wein und Zitronensaft."];
+var text3 = ["Auf dem Schiff gab es besonders haltbares Essen. ▸"
+    , "Dazu gehörte gepökeltes Schweinefleisch, eingelegte Lebensmittel und sogenannte „Hard Tacks“. ▸"
+    , "Auch gab es Fisch. ▸"
+    , "Die meisten aßen nichts. ▸"
+    , "Das Schiff machte sie seekrank."];
 
 /**
  * Overall function for Clickevent
@@ -22,7 +22,7 @@ function myFunction() {
 scene3.addEventListener("markerFound", (e) => {
     document.getElementById("turnPage").style.visibility = 'hidden';
     scene3Detected = true;
-    document.getElementById("text").textContent = text2[0];
+    document.getElementById("text").textContent = text3[0];
 });
 
 /**
@@ -30,12 +30,12 @@ scene3.addEventListener("markerFound", (e) => {
  */
 function startscene3() {
     if (scene3Detected && !scene3Over) {
-        if (text2[c] == null) {
+        if (text3[c] == null) {
             document.getElementById("turnPage").style.visibility = 'visible';
             scene3Over = true;
             window.open("scene4.html", "_self");
         }
-        document.getElementById("text").textContent = text2[c];
+        document.getElementById("text").textContent = text3[c];
         c += 1;
     };
 };
