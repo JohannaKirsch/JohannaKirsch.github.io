@@ -64,7 +64,7 @@
         </a-assets>
 
 
-        <a-marker id="scene1" type="pattern" url="data/kanji.patt">
+        <a-marker type="pattern" url="data/kanji.patt">
             <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
                 gltf-model="#ship">
             </a-entity>
@@ -73,25 +73,6 @@
             <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" animation-mixer="clip: *; loop:repeat"
                 gltf-model="#wave2">
             </a-entity>
-            <!--
-            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
-                gltf-model="#woman1">
-            </a-entity>
-            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
-                gltf-model="#woman2">
-            </a-entity>
-            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
-                gltf-model="#man1">
-            </a-entity>
-            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
-                gltf-model="#man2">
-            </a-entity>
-            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
-                gltf-model="#child">
-            </a-entity>
-            <a-entity position="0 -0.5 0" rotation="0 0 0" scale="0.5 0.5 0.5" animation-mixer="clip: *; loop:repeat"
-                gltf-model="#soldat">
-            </a-entity>-->
         </a-marker>
 
         <a-entity camera></a-entity>
@@ -106,58 +87,35 @@
     </div>
     <script>
         var i = 0;
-        var text = ["Das Ziel war Amerika. ▸"
+        var text1 = ["Das Ziel war Amerika. ▸"
             , "102 Passagiere hofften auf einen Neuanfang im neuen Land. ▸"
             , "Auf dem Schiff waren Familien, Männer, Frauen aber auch elternlose Kinder. ▸"
             , "Diese Gruppe legte die Grundlage für die heutige USA."];
-        let scene = document.querySelector('a-marker').getElementById("scene1");
+        let scenes = document.querySelectorAll('a-marker');
+        let scene1 = scenes[0];
         let textElement = document.getElementById("text");
         function myFunction() {
-            if (text[i] == null) {
-                scene.removeChild(scene.firstElementChild);
-                //scene.removeChild(scene.firstElementChild);
-                //scene.removeChild(scene.firstElementChild);
-                //i = -1;
+            if (text1[i] == null) {
+                scene1.removeChild(scene1.firstElementChild);
                 document.getElementById("turnPage").style.visibility = 'visible';
             }
             if (i == 1) {
-                scene.removeChild(scene.firstElementChild);
-                scene.removeChild(scene.firstElementChild);
-                scene.removeChild(scene.firstElementChild);
-                /*let woman1 = document.createElement('a-entity');
-                woman1.setAttribute('position', '0 0 0');
-                woman1.setAttribute('rotation', '0 0 0');
-                woman1.setAttribute('scale', '1 1 1');
-                woman1.setAttribute('animation-mixer', 'clip: *; loop:repeat');
-                woman1.setAttribute('gltf-model', '#woman1');
-                scene.appendChild(woman1);
-                let woman2 = document.createElement('a-entity');
-                woman2.setAttribute('position', '0 0 0');
-                woman2.setAttribute('rotation', '0 0 0');
-                woman2.setAttribute('scale', '1 1 1');
-                woman2.setAttribute('animation-mixer', 'clip: *; loop:repeat');
-                woman2.setAttribute('gltf-model', '#woman2');
-                scene.appendChild(woman2);
-                let man1 = document.createElement('a-entity');
-                man1.setAttribute('position', '0 0 0');
-                man1.setAttribute('rotation', '0 0 0');
-                man1.setAttribute('scale', '1 1 1');
-                man1.setAttribute('animation-mixer', 'clip: *; loop:repeat');
-                man1.setAttribute('gltf-model', '#man1');
-                scene.appendChild(man1);*/
+                scene1.removeChild(scene1.firstElementChild);
+                scene1.removeChild(scene1.firstElementChild);
+                scene1.removeChild(scene1.firstElementChild);
                 let group = document.createElement('a-entity');
                 group.setAttribute('position', '0 0 0');
                 group.setAttribute('rotation', '0 0 0');
                 group.setAttribute('scale', '1 1 1');
                 group.setAttribute('animation-mixer', 'clip: *; loop:repeat');
                 group.setAttribute('gltf-model', '#group');
-                scene.appendChild(group);
+                scene1.appendChild(group);
             }
-            document.getElementById("text").textContent = text[i];
+            document.getElementById("text").textContent = text1[i];
             i += 1;
         };
 
-        scene.addEventListener("markerFound", (e) => { document.getElementById("turnPage").style.visibility = 'hidden' });
+        //scene1.addEventListener("markerFound", (e) => { document.getElementById("turnPage").style.visibility = 'hidden' });
     </script>
 
 </body>
