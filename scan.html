@@ -54,13 +54,8 @@
             <a-asset-item id="ship" src="models/scene1/szene1_schiff.gltf"></a-asset-item>
             <a-asset-item id="wave1" src="models/scene1/szene1_wellen1.gltf"></a-asset-item>
             <a-asset-item id="wave2" src="models/scene1/szene1_wellen2.gltf"></a-asset-item>
-            <a-asset-item id="woman1" src="models/scene1/szene1_frau1.gltf"></a-asset-item>
-            <a-asset-item id="woman2" src="models/scene1/szene1_frau2.gltf"></a-asset-item>
-            <a-asset-item id="man1" src="models/scene1/szene1_mann1.gltf"></a-asset-item>
-            <a-asset-item id="man2" src="models/scene1/szene1_mann2.gltf"></a-asset-item>
-            <a-asset-item id="child" src="models/scene1/szene1_kind.gltf"></a-asset-item>
-            <a-asset-item id="soldat" src="models/scene1/szene1_soldat.gltf"></a-asset-item>
             <a-asset-item id="group" src="models/scene1/szene1_group.gltf"></a-asset-item>
+            <a-asset-item id="scene2" src="models/scene1/szene1_group.gltf"></a-asset-item>
         </a-assets>
 
 
@@ -75,6 +70,10 @@
             </a-entity>
         </a-marker>
 
+        <a-marker type="pattern" url="data/hiro.patt">
+            <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#scene2">
+        </a-marker>
+
         <a-entity camera></a-entity>
 
     </a-scene>
@@ -85,38 +84,7 @@
             Blätter zur nächsten Seite
         </p>
     </div>
-    <script>
-        var i = 0;
-        var text1 = ["Das Ziel war Amerika. ▸"
-            , "102 Passagiere hofften auf einen Neuanfang im neuen Land. ▸"
-            , "Auf dem Schiff waren Familien, Männer, Frauen aber auch elternlose Kinder. ▸"
-            , "Diese Gruppe legte die Grundlage für die heutige USA."];
-        let scenes = document.querySelectorAll('a-marker');
-        let scene1 = scenes[0];
-        let textElement = document.getElementById("text");
-        function myFunction() {
-            if (text1[i] == null) {
-                scene1.removeChild(scene1.firstElementChild);
-                document.getElementById("turnPage").style.visibility = 'visible';
-            }
-            if (i == 1) {
-                scene1.removeChild(scene1.firstElementChild);
-                scene1.removeChild(scene1.firstElementChild);
-                scene1.removeChild(scene1.firstElementChild);
-                let group = document.createElement('a-entity');
-                group.setAttribute('position', '0 0 0');
-                group.setAttribute('rotation', '0 0 0');
-                group.setAttribute('scale', '1 1 1');
-                group.setAttribute('animation-mixer', 'clip: *; loop:repeat');
-                group.setAttribute('gltf-model', '#group');
-                scene1.appendChild(group);
-            }
-            document.getElementById("text").textContent = text1[i];
-            i += 1;
-        };
-
-        //scene1.addEventListener("markerFound", (e) => { document.getElementById("turnPage").style.visibility = 'hidden' });
-    </script>
+    <script src="js/scenes.js"></script>
 
 </body>
 
