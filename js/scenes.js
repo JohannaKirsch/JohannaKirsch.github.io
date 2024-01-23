@@ -16,7 +16,7 @@ var text1 = ["Das Ziel war Amerika. ▸"
 let scene2Over = false;
 let scene2Detected = false;
 let scene2 = scenes[1];
-var b = 0;
+var b = 1;
 var text2 = ["Alle Passagiere tranken Bier auf dem Schiff. ▸"
     , "Das Wasser war nicht sauber genug. ▸"
     , "Es gab auch Wein zum Trinken. ▸"
@@ -27,14 +27,20 @@ var text2 = ["Alle Passagiere tranken Bier auf dem Schiff. ▸"
  * Overall function for Clickevent
  */
 function myFunction() {
-    scene1.addEventListener("markerFound", (e) => {
-        console.log("found");
-    });
     startScene1();
     startScene2();
 };
 
-//scene1.addEventListener("markerFound", (e) => { document.getElementById("turnPage").style.visibility = 'hidden' });
+scene1.addEventListener("markerFound", (e) => {
+    document.getElementById("turnPage").style.visibility = 'hidden';
+    scene1Detected = true;
+});
+
+scene2.addEventListener("markerFound", (e) => {
+    document.getElementById("turnPage").style.visibility = 'hidden';
+    scene2Detected = true;
+    document.getElementById("text").textContent = text2[0];
+});
 
 /**
  * scene1 function
@@ -68,12 +74,6 @@ function startScene1() {
  * scene2 function
  */
 function startScene2() {
-    if (!scene2Detected) {
-        scene2.addEventListener("markerFound", (e) => {
-            document.getElementById("turnPage").style.visibility = 'hidden';
-            scene2Detected = true;
-        });
-    };
     if (scene2Detected && !scene2Over) {
         if (text2[b] == null) {
             document.getElementById("turnPage").style.visibility = 'visible';
