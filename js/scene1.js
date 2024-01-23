@@ -35,7 +35,7 @@ function startScene1() {
             scene1.removeChild(scene1.firstElementChild);
             document.getElementById("turnPage").style.visibility = 'visible';
             scene1Over = true;
-            location.reload("scene2.html");
+            location.open("scene2.html");
         }
         if (a == 1) {
             scene1.removeChild(scene1.firstElementChild);
@@ -53,3 +53,17 @@ function startScene1() {
         a += 1;
     };
 };
+
+/**
+ * scene2 function
+ 
+function startScene2() {
+    if (scene2Detected && !scene2Over) {
+        if (text2[b] == null) {
+            document.getElementById("turnPage").style.visibility = 'visible';
+            scene2Over = true;
+        }
+        document.getElementById("text").textContent = text2[b];
+        b += 1;
+    };
+};*/
