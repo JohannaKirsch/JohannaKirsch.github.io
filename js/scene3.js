@@ -28,7 +28,7 @@ scene3.addEventListener("markerFound", (e) => {
 /**
  * scene3 function
  */
-function startscene3() {
+function startScene3() {
     if (scene3Detected && !scene3Over) {
         if (text3[c] == null) {
             document.getElementById("turnPage").style.visibility = 'visible';
