@@ -9,53 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
-    <style>
-        .text {
-            background-image: url(ui_text_bg.png);
-            font-family: 'Jockey One', sans-serif;
-            width: 100%;
-            height: 30%;
-            bottom: 0px;
-            left: 0px;
-            background-size: cover;
-            position: absolute;
-            align-items: center;
-            z-index: 1;
-        }
-
-        #text {
-            color: white;
-            text-align: center;
-            font-size: 24px;
-            padding: 25px;
-            padding-top: 75px;
-        }
-
-        @keyframes fading {
-            0% {
-                opacity: 0.1
-            }
-
-            50% {
-                opacity: 1
-            }
-
-            100% {
-                opacity: 0.1
-            }
-        }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body style="margin: 0px; overflow: hidden;">
     <a-scene id="AR" embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
+        <!--Loading models-->
         <a-assets>
             </a-asset-item><a-asset-item id="scene2" src="models/scene2/scene2_small.gltf"></a-asset-item>
         </a-assets>
 
-
+        <!--Attaching models to marker-->
         <a-marker type="pattern" url="data/letterA.patt">
             <a-entity position="2 0 3" rotation="0 0 0" scale="3 3 3" gltf-model="#scene2">
         </a-marker>
@@ -65,8 +30,7 @@
     </a-scene>
     <div class="text" onclick="myFunction()">
         <div id="text"></div>
-        <p id="turnPage"
-            style="font-size:24px; margin: auto; text-align: center; color: #CEB9A7; animation:fading 8s infinite;">
+        <p id="turnPage" class="fadingText">
             Blätter zur nächsten Seite
         </p>
     </div>

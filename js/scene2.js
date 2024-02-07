@@ -10,7 +10,7 @@ var text2 = ["Alle Passagiere tranken Bier auf dem Schiff. ▸"
     , "Das Wasser war nicht sauber genug. ▸"
     , "Es gab auch Wein zum Trinken. ▸"
     , "Viele tranken Zitronensaft, um die Krankheit Skorbut nicht zu bekommen. ▸"
-    , "Im Getränk Cold Duck auf der Karte ist beides zu finden: Wein und Zitronensaft."];
+    , "Im Getränk Cold Duck auf der Karte ist beides zu finden: Wein und Zitronensaft. ▸"];
 
 /**
  * Overall function for Clickevent
@@ -19,6 +19,9 @@ function myFunction() {
     startScene2();
 };
 
+/**
+ * If marker is found, than the text for turning page disappears.
+ */
 scene2.addEventListener("markerFound", (e) => {
     document.getElementById("turnPage").style.visibility = 'hidden';
     scene2Detected = true;
@@ -26,7 +29,8 @@ scene2.addEventListener("markerFound", (e) => {
 });
 
 /**
- * scene2 function
+ * loads the different texts
+ * if scene is over turn page appears and new side is loaded
  */
 function startScene2() {
     if (scene2Detected && !scene2Over) {

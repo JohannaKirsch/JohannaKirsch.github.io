@@ -1,0 +1,44 @@
+.fadingText {
+    font-size: 60%;
+    color: #CEB9A7;
+    animation: fading 8s infinite;
+}
+
+@keyframes fading {
+    0% {
+        opacity: 0.1
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0.1
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.text {
+    background-image: url(ui_text_bg.png);
+    font-family: 'Jockey One', sans-serif;
+    width: 100%;
+    height: 30%;
+    bottom: 0px;
+    left: 0px;
+    background-size: cover;
+    position: absolute;
+    align-items: center;
+    z-index: 1;
+}
+
+#text {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding: 25px;
+    padding-top: 75px;
+}
